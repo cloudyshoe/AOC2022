@@ -63,6 +63,3 @@ function revisedScoreRound(round) {
 }
 
 document.getElementById('answer2').textContent = totalScore;
-
-// answer1 = 15691;
-// answer2 = 12989;

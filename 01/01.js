@@ -38,6 +38,3 @@ function sumArray(inputArray, outputArray, n) {
 
 document.getElementById('answer1').textContent = results[0];
 document.getElementById('answer2').textContent = results[2];
-
-// answer1 = 71471;
-// answer2 = 211189;
