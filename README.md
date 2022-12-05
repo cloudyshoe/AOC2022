@@ -5,3 +5,5 @@
 [Day 2](https://cloudyshoe.github.io/AOC2022/02)
 
 [Day 3](https://cloudyshoe.github.io/AOC2022/03)
+
+[Day 4](https://cloudyshoe.github.io/AOC2022/04)
