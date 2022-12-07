@@ -7,14 +7,23 @@ const example = [`mjqjpqmgbljsphdztnvjfqwrcgsmlb`,
 `bvwbjplbgvbhsrlpgdmjqwftvncz`,
 `nppdvjthqldpwncqszvftbrmjlhg`,
 `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`,
-`zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`]
+`zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`];
+
 console.log(example.map(e => findStart(e)));
+
 const resultOne = findStart(input);
 document.getElementById('answer1').textContent = resultOne;
+
 console.log(example.map(e => findStart(e, 14)));
+
 const resultTwo = findStart(input, 14);
 document.getElementById('answer2').textContent = resultTwo;
 
+function findStart(str, len=4) {
+    return strArr = Array.from(str).findIndex((e, index, arr) => new Set(arr.slice(index, index+len)).size == len) + len;
+}
+
+/* Original solution
 function findStart(str, len=4) {
     let strArr = Array.from(str);
     for (let i = 0; i < strArr.length; i++) {
@@ -22,3 +31,4 @@ function findStart(str, len=4) {
         if (candidate.size == len) return i+len;
     }
 }
+*/

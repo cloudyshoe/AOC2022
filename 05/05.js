@@ -26,7 +26,6 @@ const exampleResultTwo = parseAndMove(exampleArr, true);
 console.log(exampleResultTwo);
 const resultTwo = parseAndMove(inputArr, true);
 document.getElementById('answer2').textContent = resultTwo;
-let test = parseNew(exampleArr);
 
 function createCrates(arr) {
     const num = Math.ceil(arr[0].length / 4);
@@ -38,14 +37,36 @@ function createCrates(arr) {
     return temp;
 }
 
-function parseNew(arr, retainOrder=false) {
-    const crate = arr.filter(e => e.includes('['));
+function parseAndMove(arr, retainOrder=false) {
+    const letter = /\w/g;
+    const crates = createCrates(arr);
+    const crateList = arr.filter(e => e.includes('['));
+    crateList.forEach(e => {
+        while ((match = letter.exec(e)) != null) crates[(match.index-1)/4].push(match[0]);
+    });
     const moves = arr.filter(e => e.includes('move'));
-    return {moves, crate}
+    moves.forEach(e => {
+        let [count, from, to] = e
+                                .replaceAll("move ", "")
+                                .replaceAll(" from ", ",")
+                                .replaceAll(" to ", ",")
+                                .split(",");
+        if (!retainOrder) {
+            for (let j = 0; j < count; j++) {
+                crates[to-1]
+                    .splice(0, 0, ...(crates[from-1] .splice(0, 1)));
+            } 
+        } else {
+            crates[to-1]
+                .splice(0, 0, ...(crates[from-1] .splice(0, count)));
+        }
+    })
+    return crates
+        .map(e => e .splice(0, 1)) .toString() .replaceAll(",", "");
 }
 
-function parseAndMove(arr, retainOrder=false) {
-    let crates = createCrates(arr);
+function parseAndMoveOld(arr, retainOrder=false) {
+    const crates = createCrates(arr);
 
     for (let i = 0; i < arr.length; i++) {
         const letter = /[A-Z]/;
@@ -66,7 +87,7 @@ function parseAndMove(arr, retainOrder=false) {
             if (!retainOrder) {
                 for (let j = 0; j < count; j++) {
                     crates[to-1]
-                        .splice(0, 0, (crates[from-1] .splice(0, 1)));
+                        .splice(0, 0, ...(crates[from-1] .splice(0, 1)));
                 } 
             } else {
                 crates[to-1]
