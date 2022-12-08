@@ -9,8 +9,6 @@ const example = `30373
 33549
 35390`;
 
-let a = Date.now();
-
 const exampleArr = example.split("\n");
 const inputArr = input.split("\n");
 
