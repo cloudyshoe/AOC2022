@@ -29,17 +29,17 @@ const directions = {
 }
 
 const exampleArr = example.split("\n");
-console.log(something(exampleArr, 2));
+console.log(processInstructions(exampleArr, 2));
 
 const inputArr = input.split("\n");
-document.getElementById('answer1').textContent = something(inputArr, 2);
+document.getElementById('answer1').textContent = processInstructions(inputArr, 2);
 
 const exampleTwoArr = exampleTwo.split("\n");
-console.log(something(exampleTwoArr, 10));
+console.log(processInstructions(exampleTwoArr, 10));
 
-document.getElementById('answer2').textContent = something(inputArr, 10);
+document.getElementById('answer2').textContent = processInstructions(inputArr, 10);
 
-function something(instructions, knots) {
+function processInstructions(instructions, knots) {
     let rope = createRope(knots);
     const visited = new Set();
     for(let i = 0; i < instructions.length; i++) {
