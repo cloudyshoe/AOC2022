@@ -15,3 +15,7 @@
 [Day 7](https://cloudyshoe.github.io/AOC2022/07)
 
 [Day 8](https://cloudyshoe.github.io/AOC2022/08)
+
+[Day 9](https://cloudyshoe.github.io/AOC2022/09)
+
+[Day 10](https://cloudyshoe.github.io/AOC2022/10)
