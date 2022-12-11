@@ -1,7 +1,6 @@
 const daynoText = 'Day No. ';
 const daynoNum = 10;
 const dayno = daynoText + daynoNum;
-document.getElementById('dayno').textContent = dayno;
 
 const example = `addx 15
 addx -11
@@ -153,12 +152,11 @@ noop`;
 const exampleArr = example.split("\n");
 console.log(partOne(exampleArr));
 
+const input = await Deno.readTextFile("/home/babel/Documents/AOC2022/10/input.txt");
 const inputArr = input.split("\n");
-document.getElementById('answer1').textContent = partOne(inputArr);
 
 console.log(partTwo(exampleArr));
 
-document.getElementById('answer2').textContent = partTwo(inputArr)
 
 function partOne(arr) {
     let state = {
