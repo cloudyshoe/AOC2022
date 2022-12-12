@@ -126,24 +126,9 @@ function partTwo(arr) {
   return best;
 }
 
-async function stepCounts(graph, start, end) {
-  const promises = await Promise.all(start.map(async (point) => {
-    console.log(point);
-    return await findRoute(graph, point, end);
-  }));
-  return promises.reduce((best, current) => current < best ? current : best);
-}
 
-function asyncPartTwo(arr) {
-  let [start, end] = findAllStartEnd(arr);
-  const elevationGraph = buildGraph(arr);
-  const best = stepCounts(elevationGraph, start, end);
-  return best;
-}
 
 console.log(partOne(exampleArr));
 console.log(partOne(inputArr));
-console.log(await asyncPartTwo(exampleArr));
-const result = await asyncPartTwo(inputArr);
-//document.getElementById('answer2').textContent = result;
-console.log(result);
+console.log(partTwo(exampleArr));
+console.log(partTwo(inputArr));
