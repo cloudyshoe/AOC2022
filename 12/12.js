@@ -126,8 +126,6 @@ function partTwo(arr) {
   return best;
 }
 
-
-
 console.log(partOne(exampleArr));
 console.log(partOne(inputArr));
 console.log(partTwo(exampleArr));
